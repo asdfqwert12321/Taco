@@ -1,4 +1,4 @@
-html = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,7 +18,11 @@ html = r"""<!DOCTYPE html>
       --card: rgba(255, 248, 232, 0.92);
       --shadow: 0 14px 35px rgba(76, 36, 15, 0.18);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -28,122 +32,374 @@ html = r"""<!DOCTYPE html>
         linear-gradient(135deg, #f7d27b 0%, #f4b860 35%, #ef7a35 100%);
       min-height: 100vh;
     }
+
     .pattern {
-      position: fixed; inset: 0; pointer-events: none; opacity: 0.08;
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
       background-image:
         repeating-linear-gradient(45deg, #ffffff 0 10px, transparent 10px 20px),
         repeating-linear-gradient(-45deg, #ffffff 0 10px, transparent 10px 20px);
       mix-blend-mode: soft-light;
     }
-    .container { width: min(1150px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 48px; position: relative; z-index: 1; }
-    .hero {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: center;
-      padding: 28px; background: linear-gradient(135deg, rgba(255,244,222,0.95), rgba(255,231,190,0.9));
-      border: 4px solid rgba(201,60,40,0.28); border-radius: 28px; box-shadow: var(--shadow);
-      overflow: hidden; position: relative;
+
+    .container {
+      width: min(1150px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+      position: relative;
+      z-index: 1;
     }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(255,244,222,0.95), rgba(255,231,190,0.9));
+      border: 4px solid rgba(201,60,40,0.28);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
     .hero::after {
-      content: ""; position: absolute; right: -30px; top: -30px; width: 180px; height: 180px;
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 180px;
+      height: 180px;
       background: radial-gradient(circle, rgba(201,60,40,0.16), transparent 65%);
     }
+
     .eyebrow {
-      display: inline-block; padding: 8px 14px; border-radius: 999px; background: var(--green); color: #fff;
-      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
+
     h1 {
-      margin: 0; font-family: 'Permanent Marker', cursive; font-size: clamp(2.4rem, 6vw, 4.6rem);
-      line-height: 0.95; color: var(--red);
+      margin: 0;
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 0.95;
+      color: var(--red);
     }
-    .hero p { font-size: 1.02rem; line-height: 1.7; max-width: 58ch; margin: 16px 0 22px; }
-    .hero-stats { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero p {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 58ch;
+      margin: 16px 0 22px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     .stat {
-      background: rgba(255,255,255,0.7); border: 2px solid rgba(58,36,23,0.08); border-radius: 18px;
-      padding: 14px 16px; min-width: 130px;
+      background: rgba(255,255,255,0.7);
+      border: 2px solid rgba(58,36,23,0.08);
+      border-radius: 18px;
+      padding: 14px 16px;
+      min-width: 130px;
     }
-    .stat strong { display: block; font-size: 1.3rem; color: var(--green); }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--green);
+    }
+
     .hero-art {
-      background: linear-gradient(160deg, #c93c28, #ef7a35 70%, #f7d27b); border-radius: 26px; min-height: 320px;
-      padding: 24px; display: flex; align-items: center; justify-content: center; position: relative;
+      background: linear-gradient(160deg, #c93c28, #ef7a35 70%, #f7d27b);
+      border-radius: 26px;
+      min-height: 320px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       box-shadow: inset 0 0 0 3px rgba(255,255,255,0.15);
     }
-    .taco-badge {
-      width: 230px; aspect-ratio: 1; border-radius: 50%; background: rgba(255,248,232,0.95); display: grid;
-      place-items: center; text-align: center; padding: 20px; box-shadow: 0 10px 26px rgba(0,0,0,0.18); transform: rotate(-7deg);
+
+    .hero-taco-image {
+      max-width: 100%;
+      width: 340px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
     }
-    .taco-badge .emoji { font-size: 3.6rem; margin-bottom: 10px; }
-    .taco-badge h2 { margin: 0; font-family: 'Permanent Marker', cursive; color: var(--green); font-size: 1.8rem; }
-    .controls { display: flex; gap: 14px; flex-wrap: wrap; margin: 26px 0 22px; }
-    .control { flex: 1 1 220px; background: var(--card); border-radius: 18px; box-shadow: var(--shadow); padding: 14px; }
+
+    .lime::after {
+      inset: 16px 25px 16px 25px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.2);
+      box-shadow:
+        -8px 0 0 rgba(255,255,255,0.2),
+        8px 0 0 rgba(255,255,255,0.2),
+        0 -8px 0 rgba(255,255,255,0.18),
+        0 8px 0 rgba(255,255,255,0.18);
+    }
+
+    .taco-badge .emoji {
+      font-size: 3.6rem;
+      margin-bottom: 10px;
+    }
+
+    .taco-badge h2 {
+      margin: 0;
+      font-family: 'Permanent Marker', cursive;
+      color: var(--green);
+      font-size: 1.8rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 26px 0 22px;
+    }
+
+    .control {
+      flex: 1 1 220px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
     .control label {
-      display: block; font-size: 0.86rem; font-weight: 700; text-transform: uppercase; color: var(--red);
-      margin-bottom: 8px; letter-spacing: 0.04em;
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
     }
-    .control input, .control select {
-      width: 100%; border: 2px solid rgba(58,36,23,0.12); border-radius: 12px; padding: 12px 14px;
-      font-size: 0.98rem; background: #fffaf0; color: var(--dark); outline: none;
+
+    .control input,
+    .control select {
+      width: 100%;
+      border: 2px solid rgba(58,36,23,0.12);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.98rem;
+      background: #fffaf0;
+      color: var(--dark);
+      outline: none;
     }
-    .section-title { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin: 12px 0 14px; }
-    .section-title h3 { margin: 0; font-size: 1.55rem; color: var(--dark); }
-    .section-title p { margin: 0; opacity: 0.85; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 12px 0 14px;
+    }
+
+    .section-title h3 {
+      margin: 0;
+      font-size: 1.55rem;
+      color: var(--dark);
+    }
+
+    .section-title p {
+      margin: 0;
+      opacity: 0.85;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
     .card {
-      background: var(--card); border-radius: 24px; padding: 18px; box-shadow: var(--shadow);
-      border: 2px solid rgba(255,255,255,0.35); transition: transform 0.18s ease, box-shadow 0.18s ease;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(255,255,255,0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 35px rgba(76, 36, 15, 0.22); }
-    .card-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; margin-bottom: 10px; }
-    .card h4 { margin: 0; font-size: 1.15rem; }
-    .location { font-size: 0.92rem; opacity: 0.8; margin-top: 4px; }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px rgba(76, 36, 15, 0.22);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .card h4 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .location {
+      font-size: 0.92rem;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
     .score {
-      min-width: 68px; text-align: center; background: var(--green); color: #fff; padding: 10px 12px;
-      border-radius: 18px; font-weight: 800; line-height: 1;
+      min-width: 68px;
+      text-align: center;
+      background: var(--green);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 18px;
+      font-weight: 800;
+      line-height: 1;
     }
-    .score span { display: block; font-size: 0.78rem; opacity: 0.9; margin-top: 6px; font-weight: 600; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+
+    .score span {
+      display: block;
+      font-size: 0.78rem;
+      opacity: 0.9;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
     .tag {
-      background: rgba(31,122,63,0.11); color: var(--green); border: 1px solid rgba(31,122,63,0.14);
-      padding: 7px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+      background: rgba(31,122,63,0.11);
+      color: var(--green);
+      border: 1px solid rgba(31,122,63,0.14);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
-    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
-    .meta div { background: rgba(255,255,255,0.72); border-radius: 14px; padding: 10px; text-align: center; }
-    .meta strong { display: block; font-size: 1rem; color: var(--red); }
-    .review { margin: 0; line-height: 1.6; font-size: 0.94rem; }
-    .footer-note { margin-top: 26px; text-align: center; font-size: 0.92rem; opacity: 0.82; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .meta div {
+      background: rgba(255,255,255,0.72);
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .meta strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--red);
+    }
+
+    .review {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      text-align: center;
+      font-size: 0.92rem;
+      opacity: 0.82;
+    }
+
     .empty {
-      background: rgba(255,248,232,0.86); padding: 28px; border-radius: 22px; text-align: center;
-      box-shadow: var(--shadow); font-weight: 600;
+      background: rgba(255,248,232,0.86);
+      padding: 28px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      font-weight: 600;
     }
+
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-art { min-height: 220px; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 220px;
+      }
     }
+
     @media (max-width: 560px) {
-      .container { width: min(100% - 18px, 1150px); }
-      .hero, .card, .control { border-radius: 20px; }
-      .meta { grid-template-columns: 1fr; }
+      .container {
+        width: min(100% - 18px, 1150px);
+      }
+
+      .hero,
+      .card,
+      .control {
+        border-radius: 20px;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <div class="pattern"></div>
+
   <main class="container">
     <section class="hero">
       <div>
         <span class="eyebrow">Best Local Taco Spots</span>
-        <h1>Taco Town Ratings</h1>
-        <p>Discover, compare, and obsess over the best taco restaurants in town. Built for salsa lovers, street taco purists, and anyone chasing the perfect bite.</p>
+        <h1>KSQ Tacos</h1>
+        <p>
+          Discover, compare, and obsess over the best taco restaurants in town.
+          Built for salsa lovers, street taco purists, and anyone chasing the perfect bite.
+        </p>
         <div class="hero-stats">
-          <div class="stat"><strong>12</strong>Rated Spots</div>
-          <div class="stat"><strong>4.7★</strong>Top Average</div>
-          <div class="stat"><strong>Local</strong>Taco Guide</div>
+          <div class="stat">
+            <strong>12</strong>
+            Rated Spots
+          </div>
+          <div class="stat">
+            <strong>4.7★</strong>
+            Top Average
+          </div>
+          <div class="stat">
+            <strong>Local</strong>
+            Taco Guide
+          </div>
         </div>
       </div>
+
       <div class="hero-art">
-        <div class="taco-badge">
-          <div class="emoji">🌮</div>
-          <h2>Fiesta Approved</h2>
-          <p>Find your next taco night favorite.</p>
-        </div>
+        <img src="CARTOON.png" alt="Cartoon carnitas street taco" class="hero-taco-image">
+      </div>
       </div>
     </section>
 
@@ -180,17 +436,100 @@ html = r"""<!DOCTYPE html>
     </div>
 
     <section id="cards" class="grid"></section>
+
+    <section class="card" style="margin-top: 24px;">
+      <div class="section-title" style="margin-top:0;">
+        <div>
+          <h3>Featured: Best Gas Station Taco</h3>
+          <p>A special shoutout for the most unexpectedly great taco around.</p>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <h4>Fuel Stop Taqueria</h4>
+          <div class="location">⛽ Kennett Square</div>
+        </div>
+        <div class="score">4.4<span>Rating</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Gas station gem</span>
+        <span class="tag">Carnitas</span>
+        <span class="tag">Open late</span>
+      </div>
+      <p class="review">Do not let the setting fool you. The tortillas are warm, the carnitas have real crisp edges, and the green salsa brings enough heat to make this the surprise winner of the roadside taco category.</p>
+    </section>
+
     <p class="footer-note">Swap in your real local restaurants, photos, links, and reviews to make this fully yours.</p>
   </main>
 
   <script>
     const restaurants = [
-      { name: 'Casa del Fuego', town: 'Downtown', rating: 4.9, price: 2, spice: 5, vibe: 5, style: 'birria', tags: ['Birria', 'House salsa', 'Late-night'], review: 'Rich consommé, crispy tortillas, and some of the deepest beef flavor in town. Loud, lively, and absolutely worth the mess.' },
-      { name: 'El Camino Street Tacos', town: 'Market District', rating: 4.8, price: 1, spice: 4, vibe: 4, style: 'street', tags: ['Street tacos', 'Al pastor', 'Fast service'], review: 'Simple, authentic, and consistently excellent. The al pastor is the star, especially with grilled pineapple and green salsa.' },
-      { name: 'Luna Lime Taqueria', town: 'Old Town', rating: 4.6, price: 2, spice: 3, vibe: 5, style: 'modern', tags: ['Fusion', 'Craft cocktails', 'Patio'], review: 'A more polished taco experience with strong presentation, creative toppings, and a fun social atmosphere.' },
-      { name: 'Tacos y Tierra', town: 'West Side', rating: 4.7, price: 1, spice: 5, vibe: 3, style: 'street', tags: ['Carnitas', 'Hot sauces', 'Casual'], review: 'The carnitas are crispy and juicy at the same time. Not fancy, but the flavor delivers every single visit.' },
-      { name: 'Rojo Agave Kitchen', town: 'Riverfront', rating: 4.5, price: 3, spice: 2, vibe: 5, style: 'modern', tags: ['Upscale', 'Date night', 'Shrimp tacos'], review: 'Great place for a nicer taco night. The menu leans modern, but the quality is high and the room has real energy.' },
-      { name: 'Birria Brothers', town: 'South End', rating: 4.8, price: 2, spice: 4, vibe: 4, style: 'birria', tags: ['Birria', 'Quesatacos', 'Weekend spot'], review: 'A local favorite for rich dipping broth and cheesy, crispy quesatacos. Go hungry and bring napkins.' }
+      {
+        name: 'Casa del Fuego',
+        town: 'Downtown',
+        rating: 4.9,
+        price: 2,
+        spice: 5,
+        vibe: 5,
+        style: 'birria',
+        tags: ['Birria', 'House salsa', 'Late-night'],
+        review: 'Rich consommé, crispy tortillas, and some of the deepest beef flavor in town. Loud, lively, and absolutely worth the mess.'
+      },
+      {
+        name: 'El Camino Street Tacos',
+        town: 'Market District',
+        rating: 4.8,
+        price: 1,
+        spice: 4,
+        vibe: 4,
+        style: 'street',
+        tags: ['Street tacos', 'Al pastor', 'Fast service'],
+        review: 'Simple, authentic, and consistently excellent. The al pastor is the star, especially with grilled pineapple and green salsa.'
+      },
+      {
+        name: 'Luna Lime Taqueria',
+        town: 'Old Town',
+        rating: 4.6,
+        price: 2,
+        spice: 3,
+        vibe: 5,
+        style: 'modern',
+        tags: ['Fusion', 'Craft cocktails', 'Patio'],
+        review: 'A more polished taco experience with strong presentation, creative toppings, and a fun social atmosphere.'
+      },
+      {
+        name: 'Tacos y Tierra',
+        town: 'West Side',
+        rating: 4.7,
+        price: 1,
+        spice: 5,
+        vibe: 3,
+        style: 'street',
+        tags: ['Carnitas', 'Hot sauces', 'Casual'],
+        review: 'The carnitas are crispy and juicy at the same time. Not fancy, but the flavor delivers every single visit.'
+      },
+      {
+        name: 'Rojo Agave Kitchen',
+        town: 'Riverfront',
+        rating: 4.5,
+        price: 3,
+        spice: 2,
+        vibe: 5,
+        style: 'modern',
+        tags: ['Upscale', 'Date night', 'Shrimp tacos'],
+        review: 'Great place for a nicer taco night. The menu leans modern, but the quality is high and the room has real energy.'
+      },
+      {
+        name: 'Birria Brothers',
+        town: 'South End',
+        rating: 4.8,
+        price: 2,
+        spice: 4,
+        vibe: 4,
+        style: 'birria',
+        tags: ['Birria', 'Quesatacos', 'Weekend spot'],
+        review: 'A local favorite for rich dipping broth and cheesy, crispy quesatacos. Go hungry and bring napkins.'
+      }
     ];
 
     const cards = document.getElementById('cards');
@@ -198,7 +537,9 @@ html = r"""<!DOCTYPE html>
     const sort = document.getElementById('sort');
     const filter = document.getElementById('filter');
 
-    function dollarSigns(price) { return '$'.repeat(price); }
+    function dollarSigns(price) {
+      return '$'.repeat(price);
+    }
 
     function render() {
       const searchTerm = search.value.toLowerCase().trim();
@@ -237,14 +578,17 @@ html = r"""<!DOCTYPE html>
             </div>
             <div class="score">${r.rating.toFixed(1)}<span>Rating</span></div>
           </div>
+
           <div class="tags">
             ${r.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
           </div>
+
           <div class="meta">
             <div><strong>${dollarSigns(r.price)}</strong>Price</div>
             <div><strong>${'🌶️'.repeat(r.spice)}</strong>Spice</div>
             <div><strong>${'🎉'.repeat(r.vibe)}</strong>Vibe</div>
           </div>
+
           <p class="review">${r.review}</p>
         </article>
       `).join('');
@@ -253,14 +597,8 @@ html = r"""<!DOCTYPE html>
     search.addEventListener('input', render);
     sort.addEventListener('change', render);
     filter.addEventListener('change', render);
+
     render();
   </script>
 </body>
 </html>
-"""
-
-path = "/mnt/data/index.html"
-with open(path, "w", encoding="utf-8") as f:
-    f.write(html)
-
-print(f"Saved {path}")
